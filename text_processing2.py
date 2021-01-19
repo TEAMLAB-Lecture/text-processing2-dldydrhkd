@@ -71,6 +71,14 @@ def to_camel_case(underscore_str):
             "alreadyCamel"
     """
     camelcase_str = ''
+    temp = underscore_str.split('_')
+    check = False
+    for i in range(len(underscore_str)):
+        if(underscore_str[i]=='_'):
+            check = True
+            break
+    if(not check):
+        return underscore_str
     l = len(underscore_str)
     k = 0
     under = False
@@ -80,7 +88,7 @@ def to_camel_case(underscore_str):
         else:
             break
     for i in range(k,l):
-        if(underscore_str[i]=='_'):
+        if(underscore_str[i]=='_' and not under):
             under=True
         elif(under):
             camelcase_str = camelcase_str + underscore_str[i].upper()
@@ -88,8 +96,3 @@ def to_camel_case(underscore_str):
         else:
             camelcase_str = camelcase_str + underscore_str[i].lower()
     return camelcase_str
-
-
-
-s = "__EXAMPLE_NAME__"
-print(to_camel_case(s))
