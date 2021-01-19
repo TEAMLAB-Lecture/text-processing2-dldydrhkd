@@ -86,10 +86,10 @@ def to_camel_case(underscore_str):
             camelcase_str = camelcase_str + underscore_str[i].upper()
             under = False
         else:
-            camelcase_str = camelcase_str + underscore_str[i]
+            camelcase_str = camelcase_str + underscore_str[i].lower()
     return camelcase_str
 
 
 
-s = "to_camel_case"
+s = "__EXAMPLE_NAME__"
 print(to_camel_case(s))
