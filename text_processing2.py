@@ -83,12 +83,14 @@ def to_camel_case(underscore_str):
     l = len(temp)
     k = 0
     under = False
-    for i in range(l):
-        if(underscore_str[i]=='_'):
-            under=True
-        elif(under):
-            camelcase_str = camelcase_str + underscore_str[i].upper()
-            under = False
-        else:
-            camelcase_str = camelcase_str + underscore_str[i].lower()
+    s = temp.split('_')
+    for i in range(len(s)):
+        for j in range(len(s[i])):
+            if(i==0):
+                camelcase_str = camelcase_str + s[i][j].lower()
+            else:
+                if(j==0):
+                    camelcase_str = camelcase_str + s[i][j].upper()
+                else:
+                    camelcase_str = camelcase_str + s[i][j].lower()
     return camelcase_str
